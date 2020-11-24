@@ -6,7 +6,7 @@ import styles from './Layout.module.css';
 const layout = ( props ) => (
   <Frag>
     <div>Toolbar, SideDrawer, Backdrop</div>
-    <main className={styles.content}>
+    <main className={styles.Content}>
       {props.children}
     </main>
   </Frag>
