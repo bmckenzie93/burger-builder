@@ -1,3 +1,3 @@
-const frag = (props) => props.children;
+const frag = props => props.children;
 
 export default frag;
