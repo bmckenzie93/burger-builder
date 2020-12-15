@@ -65,12 +65,21 @@ export default class BurgerBuilder extends Component {
   }
 
   render() {
+    const disabledInfo = {
+      ...this.state.ingredients
+    }
+
+    for(let key in disabledInfo) {
+      disabledInfo[key] = disabledInfo[key] <= 0;
+    }
+
     return(
       <Frag>
         <Burger ingredients={this.state.ingredients} />
         <BuildCtrls 
           addHandler={this.addIngredientHandler}
-          subtractHandler={this.removeIngredientHandler} />
+          subtractHandler={this.removeIngredientHandler}
+          disabled={disabledInfo} />
       </Frag>
     );
   }

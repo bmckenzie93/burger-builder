@@ -17,7 +17,8 @@ const buildCtrls = props => (
         key={ctrl.label} 
         label={ctrl.label}
         addHandler={()=>props.addHandler(ctrl.type)}
-        subtractHandler ={()=>props.subtractHandler(ctrl.type)} />
+        subtractHandler ={()=>props.subtractHandler(ctrl.type)}
+        disabled ={props.disabled[ctrl.type]} />
     ))}
   </div>
 );
