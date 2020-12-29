@@ -23,7 +23,8 @@ export default class BurgerBuilder extends Component {
       meat: 0,
     },
     totalPrice: 4,
-    canPurchase: false
+    canPurchase: false,
+    isPurchasing: false
   }
 
   updateCanPurchase(ingredients) {
@@ -82,6 +83,10 @@ export default class BurgerBuilder extends Component {
     this.updateCanPurchase(updatedIngredients);
   }
 
+  isPurchasingHandler = () => {
+    this.setState({isPurchasing: true});
+  }
+
   render() {
     const disabledInfo = {
       ...this.state.ingredients
@@ -93,13 +98,14 @@ export default class BurgerBuilder extends Component {
 
     return(
       <Frag>
-        <Modal>
+        <Modal show={this.state.isPurchasing}>
           <OrderSummery ingredients={this.state.ingredients}/>
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildCtrls 
           addHandler={this.addIngredientHandler}
           canPurchase={this.state.canPurchase}
+          orderNow={this.isPurchasingHandler}
           subtractHandler={this.removeIngredientHandler}
           disabled={disabledInfo}
           totalPrice={this.state.totalPrice} />

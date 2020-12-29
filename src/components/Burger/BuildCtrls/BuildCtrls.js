@@ -23,7 +23,8 @@ const buildCtrls = props => (
     ))}
     <button 
       className={styles.OrderButton}
-      disabled={!props.canPurchase}>
+      disabled={!props.canPurchase}
+      onClick={props.orderNow}>
         ORDER NOW!
     </button>
   </div>
